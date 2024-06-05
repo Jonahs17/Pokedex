@@ -1,0 +1,38 @@
+.pokemon-details-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:1rem;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.pokemon-name{
+    font-size: xx-large;
+    letter-spacing: 1rem;
+}
+
+.pokemon-detail-image{
+    height: 20rem;
+}
+image{
+    height: 20rem;
+}
+
+.pokemon-height{
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.pokemon-weight{
+    font-size: larger;
+    font-weight: bolder;
+}
+.pokemon-types{
+    font-size: larger;
+    font-weight: bolder;
+    border:1px solid rgb(106, 0, 0);
+    padding: 1rem 2rem;
+    background-color: #fff;
+
+    
+}

@@ -6,7 +6,8 @@
     margin-top: 2rem;
     border:2px solid black;
     border-radius: 10px;
-    background-color: beige;
+    background-color: #f5f5dc;
+    text-decoration: none;
 }
 
 .pokemon:hover{
@@ -19,7 +20,7 @@
 }
 
 .pokemon-image{
-    max-height: 100%;
+    max-height: 10rem;
 }
 
 .pokemon-name{
@@ -28,4 +29,14 @@
     font-weight: 600;
     margin-bottom: 1rem;
     margin-top: 1rem;
+    text-decoration: none;
+    color: black;
+
 }
+
+.pokemon-link{
+    text-decoration: none;
+}
+
+
+
