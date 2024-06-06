@@ -1,11 +1,18 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import downloadPokemons from "../utils/downloadPokemon";
 
-function usePokemonDetails(id){
+function usePokemonDetails(id,defaultUrl){
     const URL = `https://pokeapi.co/api/v2/pokemon/${id}`;
     const [pokemon, setPokemon] = useState(null);
+    const [pokemonListState, setPokemonListState] = useState({
+        pokemonList: [],
+        pokedexUrl: '',
+        nextUrl: '',
+        prevUrl: ''
+    });
 
-    async function downloadPokemon(id) {
+    async function downloadGivenPokemon(id) {
         try {
             const response = await axios.get(URL);
             const pokemonData = response.data;
@@ -16,16 +23,24 @@ function usePokemonDetails(id){
                 types: pokemonData.types,
                 image: pokemonData.sprites.other.dream_world.front_default
             });
+            const types= response.data.types.map(t=>t.type.name);
+            return types[0];
         } catch (error) {
             console.error('Error fetching Pokémon data:', error);
         }
     }
 
+    async function downloadPokemonAndRelated(id){
+        const type=await downloadGivenPokemon(id);
+        await downloadPokemons(pokemonListState,setPokemonListState,`https://pokeapi.co/api/v2/type/${type}`)
+    }
+
     useEffect(() => {
-        downloadPokemon(id);
+        downloadPokemonAndRelated(id);
+        window.scrollTo({top:0,left:0,behavior:'smooth'})
     }, [id]); // Include id in the dependency array to re-fetch Pokémon data when id changesid
 
-    return [pokemon];
+    return [pokemon,pokemonListState];
 }
 
 export default usePokemonDetails;

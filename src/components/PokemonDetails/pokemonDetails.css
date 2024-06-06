@@ -36,3 +36,23 @@ image{
 
     
 }
+
+.pokemon-similar-boxes{
+    width: 100%;
+    
+}
+
+.similar-pokemons{
+    width: 50%;
+    margin: 0 auto;
+
+}
+
+.similar-pokemons h2{
+    margin: 5% 37%;
+
+}
+
+
+
+
