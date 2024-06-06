@@ -4,9 +4,8 @@ import usePokemonDetails from '../../hooks/usePokemonDetails';
 import PokemonList from '../PokemonList/PokemonList';
 import { Pokemon } from '../Pokemon/Pokemon';
 
-function PokemonDetails() {
-    const { id } = useParams();
-    const [pokemon,pokemonListState]=usePokemonDetails(id);
+function PokemonDetails({ pokemonName }) {
+    const [pokemon,pokemonListState]=usePokemonDetails(pokemonName);
 
     return (
         <div>
